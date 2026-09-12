@@ -7,31 +7,53 @@ const cookieparser= require('cookie-parser')
 
 const app = express()
 
+app.get('/', (req, res) => {
+    res.json({ status: 'ok', service: 'learning-app-api' })
+})
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieparser())
 
 app.use(cors({
-    origin:`http://localhost:5173`,
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
     credentials:true
 }))
 
-app.use("/api",apiRouter)
-
-const startServer = async () => {
-    try {
-        await mongoose.connect(process.env.MONGO_URL, {
-            serverSelectionTimeoutMS: 5000
-        })
-        console.log("Db connected succesfully")
-
-        app.listen(process.env.PORT, () => {
-            console.log(`server starts on port ${process.env.PORT} `)
-        })
-    } catch (error) {
-        console.error("Unable to connect to MongoDB:", error.message)
-        process.exit(1)
+const connectToDatabase = async () => {
+    if (mongoose.connection.readyState === 1) {
+        return
     }
+
+    await mongoose.connect(process.env.MONGO_URL, {
+        serverSelectionTimeoutMS: 5000
+    })
+    console.log("Db connected successfully")
 }
 
-startServer()
+app.use('/api', async (req, res, next) => {
+    try {
+        await connectToDatabase()
+        next()
+    } catch (error) {
+        console.error("Unable to connect to MongoDB:", error.message)
+        res.status(503).json({ message: 'Database unavailable' })
+    }
+})
+
+app.use("/api",apiRouter)
+
+if (require.main === module) {
+    connectToDatabase()
+        .then(() => {
+            app.listen(process.env.PORT || 4000, () => {
+                console.log(`server starts on port ${process.env.PORT || 4000}`)
+            })
+        })
+        .catch((error) => {
+            console.error("Unable to connect to MongoDB:", error.message)
+            process.exit(1)
+        })
+}
+
+module.exports = app
