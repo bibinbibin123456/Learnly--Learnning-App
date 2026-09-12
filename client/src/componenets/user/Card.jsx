@@ -21,7 +21,7 @@ const getFallbackImage = (title = '') => {
 
 const isCuratedCourse = (title = '') => {
   const normalizedTitle = title.toLowerCase()
-  return normalizedTitle.includes('python') || normalizedTitle.includes('data') || normalizedTitle.includes('analyst')
+  return normalizedTitle.includes('mern') || normalizedTitle.includes('web') || normalizedTitle.includes('python') || normalizedTitle.includes('data') || normalizedTitle.includes('analyst')
 }
 
 export const Card = ({ course }) => {
