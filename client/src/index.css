@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark
+}
+
+:root {
+  font-family: "DM Sans", "Trebuchet MS", sans-serif;
+  color: #17243d;
+  background: #f7f8f4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 9% 12%, rgba(255, 119, 91, 0.09), transparent 24rem),
+    radial-gradient(circle at 92% 30%, rgba(99, 195, 168, 0.13), transparent 28rem),
+    #f7f8f4;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.display-font {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.04em;
+}
+
+.page-wrap {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.soft-grid {
+  background-image: linear-gradient(rgba(23, 36, 61, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 36, 61, 0.045) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.fade-up {
+  animation: fade-up 0.65s ease both;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dark-mode body {
+  color: #eef3f5;
+  background: #101827;
+}
+
+.dark-mode .soft-grid {
+  background-color: #101827;
+  background-image: linear-gradient(rgba(238, 243, 245, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(238, 243, 245, 0.06) 1px, transparent 1px);
+}
+
+.dark-mode [class*="bg-white"],
+.dark-mode [class*="bg-base-100"],
+.dark-mode [class*="bg-[#f7f8f4]"] {
+  background-color: #1b2940 !important;
+}
+
+.dark-mode [class*="bg-[#dff3eb]"] {
+  background-color: #1d4140 !important;
+}
+
+.dark-mode [class*="bg-[#fff0eb]"] {
+  background-color: #482b33 !important;
+}
+
+.dark-mode [class*="bg-[#fff5cf]"] {
+  background-color: #494020 !important;
+}
+
+.dark-mode .accent-card {
+  color: #eef3f5;
+  border: 1px solid rgba(238, 243, 245, 0.14);
+}
+
+.dark-mode .accent-card-mint {
+  background: #1d4140 !important;
+}
+
+.dark-mode .accent-card-coral {
+  background: #482b33 !important;
+}
+
+.dark-mode .accent-card-yellow {
+  background: #494020 !important;
+}
+
+.dark-mode .accent-card p {
+  color: #c2d0d7 !important;
+}
+
+.dark-mode [class*="text-[#17243d]"],
+.dark-mode [class*="text-slate-800"] {
+  color: #eef3f5 !important;
+}
+
+.dark-mode [class*="text-[#617087]"],
+.dark-mode [class*="text-slate-600"] {
+  color: #afbdc8 !important;
+}
+
+.dark-mode [class*="border-[#17243d]"],
+.dark-mode [class*="border-slate"] {
+  border-color: rgba(238, 243, 245, 0.16) !important;
+}
+
+.dark-mode .display-font {
+  color: #eef3f5;
+}
+
+@media (max-width: 640px) {
+  .page-wrap {
+    width: min(100% - 1.25rem, 1180px);
+  }
+}
