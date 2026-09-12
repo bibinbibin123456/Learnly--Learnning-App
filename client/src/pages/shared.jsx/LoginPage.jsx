@@ -22,8 +22,6 @@ export const LoginPage = () => {
     try {
       const res = await userLogin(values)
 
-      console.log(res)
-
       if (res.data.success) {
 
         // Save token in localStorage
@@ -44,8 +42,6 @@ export const LoginPage = () => {
       }
 
     } catch (err) {
-
-      console.log(err)
 
       toast.error(
         err.response?.data?.message || 'Login failed'

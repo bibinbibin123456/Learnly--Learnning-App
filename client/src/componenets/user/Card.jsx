@@ -49,15 +49,12 @@ export const Card = ({ course }) => {
     try {
       addToCart(courseId)
         .then((res) => {
-          console.log(res);
           toast.success(res.data.message || "Course added to cart");
         })
         .catch((err) => {
-          console.log(err);
           toast.error(err.response?.data?.error || "Something went wrong");
         });
     } catch (error) {
-      console.log(error);
       toast.error("Failed to add course to cart");
     }
   };

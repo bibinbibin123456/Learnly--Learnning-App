@@ -22,7 +22,6 @@ export default function CartPage() {
 
       window.location.assign(checkoutUrl)
     } catch (error) {
-      console.log(error)
     }
 
   }
@@ -35,7 +34,6 @@ export default function CartPage() {
         setCart(res.data || null)
       })
       .catch((err) => {
-        console.log(err)
         setCart(null)
         setError(err.response?.status === 401
           ? 'Please log in again to view your cart.'
@@ -58,7 +56,6 @@ export default function CartPage() {
         fetchCart()
       })
       .catch((err) => {
-        console.log(err)
       })
   }
 

@@ -7,9 +7,8 @@ export const CoursePage = () => {
 
   useEffect(()=>{
     listCourses().then((res)=>{
-      console.log(res);
       setCourses(res.data)
-    }).catch((err)=>console.log(err))
+    }).catch(() => {})
   },[])
   return (
     <div className="page-wrap py-12 sm:py-16">

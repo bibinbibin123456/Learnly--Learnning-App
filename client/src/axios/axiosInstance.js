@@ -1,6 +1,5 @@
 import axios from 'axios'
 const url = 'https://learnly-learningapp-backend.vercel.app/api/v1'
-console.log(url,"baseurl")
 
 const axiosInstance= axios.create({
     baseURL: url,

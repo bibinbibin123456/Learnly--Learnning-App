@@ -23,9 +23,6 @@ const handleLogout= ()=>{
       navigate('/')
     })
   } catch (error) {
-    console.log(error);
-    
-    
   }
 }
 
