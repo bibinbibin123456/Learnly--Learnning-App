@@ -1,5 +1,5 @@
 import axios from 'axios'
-const url= import.meta.env.VITE_BASE_URL
+const url = 'https://learnly-learningapp-backend.vercel.app/api/v1'
 console.log(url,"baseurl")
 
 const axiosInstance= axios.create({

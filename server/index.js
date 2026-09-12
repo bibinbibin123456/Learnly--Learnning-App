@@ -7,18 +7,18 @@ const cookieparser= require('cookie-parser')
 
 const app = express()
 
-app.get('/', (req, res) => {
-    res.json({ status: 'ok', service: 'learning-app-api' })
-})
-
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieparser())
 
 app.use(cors({
-    origin:  'https://learnly-learnningapp-frontend.vercel.app',
+    origin: 'https://learnly-learnningapp-frontend.vercel.app',
     credentials:true
 }))
+
+app.get('/', (req, res) => {
+    res.json({ status: 'ok', service: 'learning-app-api' })
+})
 
 const connectToDatabase = async () => {
     if (mongoose.connection.readyState === 1) {
