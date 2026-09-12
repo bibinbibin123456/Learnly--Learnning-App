@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieparser())
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin:  'https://learnly-learnningapp-frontend.vercel.app/courses',
     credentials:true
 }))
 
