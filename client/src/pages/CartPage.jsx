@@ -83,7 +83,7 @@ export default function CartPage() {
 
   return (
     <div className="page-wrap py-10 sm:py-16">
-      <div className="mb-10"><p className="text-xs font-black uppercase tracking-[0.2em] text-[#ff765b]">Your learning shelf</p><h1 className="display-font mt-2 text-5xl text-[#17243d] sm:text-6xl">A good place to start.</h1><p className="mt-3 max-w-xl text-[#617087]">Keep the courses that caught your eye close by. You can check out whenever you are ready.</p></div>
+      <div className="mb-8 sm:mb-10"><p className="text-xs font-black uppercase tracking-[0.2em] text-[#ff765b]">Your learning shelf</p><h1 className="display-font mt-2 text-4xl text-[#17243d] sm:text-6xl">A good place to start.</h1><p className="mt-3 max-w-xl text-[#617087]">Keep the courses that caught your eye close by. You can check out whenever you are ready.</p></div>
       <div className="grid gap-6 lg:grid-cols-[1fr_340px] lg:items-start">
       <section className="rounded-[2rem] border border-[#17243d]/10 bg-white p-4 shadow-[0_12px_35px_rgba(23,36,61,0.06)] sm:p-7">
         <div className="mb-6 flex flex-col gap-2 border-b border-[#17243d]/10 pb-6 sm:flex-row sm:items-center sm:justify-between">

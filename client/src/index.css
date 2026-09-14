@@ -18,6 +18,7 @@
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 9% 12%, rgba(255, 119, 91, 0.09), transparent 24rem),
     radial-gradient(circle at 92% 30%, rgba(99, 195, 168, 0.13), transparent 28rem),
@@ -27,6 +28,13 @@ body {
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 .display-font {
@@ -124,5 +132,15 @@ a {
 @media (max-width: 640px) {
   .page-wrap {
     width: min(100% - 1.25rem, 1180px);
+  }
+
+  .btn {
+    min-height: 2.75rem;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
   }
 }
